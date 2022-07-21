@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^11.5.1",
+    "cypress": "^10.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "jsonlogs/log.json",
+      "formater": "cucumber-json-formatter.exe"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "jsonlogs/messages.ndjson"
+    }
+  },
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "multiple-cucumber-html-reporter": "^1.21.4"
+  },
+  "scripts": {
+    "test": "cypress open --config-file resolution.cypress.config.js",
+    "cypress:execution": "cypress run --config-file resolution.cypress.config.js"
+  }
+}
