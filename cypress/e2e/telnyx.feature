@@ -115,7 +115,7 @@ Feature: Telnyx Testing Feature
         And Enter "messaging" into Темы input and press suggested topic
         And Choose Q&A section in dropdown list
         And Press Login and Submit button
-        Then Opens page with new question and warning message "Этот пост в настоящее время ожидает модерации."
+        Then Opens page with new question and warning message "This post is currently awaiting moderation."
 
     Scenario: Verify work of Questions filter in Developer Community
         Given User opens main page
