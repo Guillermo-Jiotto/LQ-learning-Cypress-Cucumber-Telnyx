@@ -235,7 +235,7 @@ Then('Opens topic page with {string} header', (topicPageHeader) => {
 
 And('Click on Ask Question button', () => {
     developersPage.askQuestionBtnClick();
-    developersPage.elements.askQuestionHeader().should('have.text', "Задать вопрос");
+    developersPage.elements.askQuestionHeader().should('have.text', "Ask a Question");
 })
 
 And('Enter {string} into Ваш вопрос input', (anyText) => {

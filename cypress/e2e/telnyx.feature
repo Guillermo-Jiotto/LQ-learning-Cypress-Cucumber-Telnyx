@@ -103,7 +103,7 @@ Feature: Telnyx Testing Feature
         And Click on Join Developer Community link
         And Click on dropdown menu next to Ask question button
         And Click on Topics
-        Then Opens topic page with "Список тем" header
+        Then Opens topic page with "Topics List" header
 
     Scenario: Verify work of Ask Question form
         Given User opens main page
@@ -123,7 +123,7 @@ Feature: Telnyx Testing Feature
         And Click on Join Developer Community link
         And Click on dropdown menu next to Ask question button
         And Click on Questions
-        Then Opens question page with "Все вопросы" header
+        Then Opens question page with "All Questions" header
 
     Scenario: Verify all pricing page
         Given User opens main page
@@ -137,7 +137,7 @@ Feature: Telnyx Testing Feature
         And Click on Join Developer Community link
         And Click on dropdown menu next to Ask question button
         And Click on Users
-        Then Opens users page with "Пользователи" header
+        Then Opens users page with "Users" header
 
     Scenario: Check search filters in Blog
         Given User opens main page
