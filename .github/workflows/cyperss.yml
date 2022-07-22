@@ -37,6 +37,9 @@ jobs:
           #install: false
           browser: chrome
           # command: npm run cypress:execution
+      
+      - name: Generate report
+        run: node cucumber-html-report.js
 
       - uses: actions/upload-artifact@v2
         if: failure()
