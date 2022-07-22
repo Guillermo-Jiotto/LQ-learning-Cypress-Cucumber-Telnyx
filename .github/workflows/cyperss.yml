@@ -19,8 +19,30 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Cypress
+        run: npm install cypress
+      - name: Install cypress-cucumber-preprocessor
+        run: npm install @badeball/cypress-cucumber-preprocessor
+      - name: Install cypress-browserify-preprocessor
+        run: npm install --save-dev @cypress/browserify-preprocessor
+      - name: Install reporter dev
+        run: npm install multiple-cucumber-html-reporter --save-dev
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
+      
+      #- name: Start tests
+       # run: npm run cypress:execution
+      - name: Generate report
+        run: node cucumber-html-report.js
+      
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports/cucumber-htmlreport.html/
