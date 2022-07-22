@@ -34,7 +34,21 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          install: false
           browser: chrome
+          command: npm run cypress:execution
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
       
       #- name: Start tests
        # run: npm run cypress:execution
