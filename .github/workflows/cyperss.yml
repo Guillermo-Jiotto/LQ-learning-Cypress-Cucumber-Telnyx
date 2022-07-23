@@ -55,6 +55,7 @@ jobs:
       
       - name: Start tests
         run: npm run cypress:execution
+        
       - name: Generate report
         run: node cucumber-html-report.js
       
