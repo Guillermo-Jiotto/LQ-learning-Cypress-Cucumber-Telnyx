@@ -11,8 +11,8 @@ on:
 
 jobs:
   cypress-run:
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    # runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -30,6 +30,8 @@ jobs:
         run: npm install --save-dev @cypress/browserify-preprocessor
       - name: Install reporter dev
         run: npm install multiple-cucumber-html-reporter --save-dev
+      - name: Make formatter executable
+        run: chmod +x cucumber-json-formatter
 
       # - name: Cypress run
       #   uses: cypress-io/github-action@v4
