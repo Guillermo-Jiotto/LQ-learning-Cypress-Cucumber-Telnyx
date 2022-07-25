@@ -5,3 +5,5 @@ Telnyx-TestCases.ods
 Telnyx-TestCases.doc
 cypress/screenshots
 cypress/videos
+jsonlogs/
+reports/

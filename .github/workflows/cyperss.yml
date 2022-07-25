@@ -62,10 +62,25 @@ jobs:
         if: always()
         run: node cucumber-html-report.js
       
-      - name: Deploy report to Github Pages
+      # - name: Deploy report to Github Pages
+      #   if: always()
+      #   uses: peaceiris/actions-gh-pages@v3.7.3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_branch: gh-pages
+      #     publish_dir: reports/cucumber-htmlreport.html/
+
+      - name: Upload artifact cucumber html report
+        uses: actions/upload-artifact@v1
         if: always()
-        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: reports/cucumber-htmlreport.html/
+          name: cucumber-report
+          path: ./reports/cucumber-htmlreport.html
+      - name: Deploy report
+        uses: JamesIves/github-pages-deploy-action@3.1.0
+        if: always()
+        with:
+          ACCESS_TOKEN: ${{'secrets.ACCESS_TOKEN'}}
+          BRANCH: main
+          FOLDER: reports
+          TARGET_FOLDER: cucumber-htmlreport.html
