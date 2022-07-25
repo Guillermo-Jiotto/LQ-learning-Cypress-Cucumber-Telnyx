@@ -32,6 +32,13 @@ jobs:
         run: npm install multiple-cucumber-html-reporter --save-dev
       - name: Make formatter executable
         run: chmod +x cucumber-json-formatter
+      
+      - name: Start tests
+        run: npm run cypress:execution
+
+      - name: Generate report
+        if: always()
+        run: node cucumber-html-report.js
 
       # - name: Cypress run
       #   uses: cypress-io/github-action@v4
@@ -39,9 +46,6 @@ jobs:
       #     #install: false
       #     browser: chrome
       #     # command: npm run cypress:execution
-      
-      # - name: Generate report
-      #   run: node cucumber-html-report.js
 
       # - uses: actions/upload-artifact@v2
       #   if: failure()
@@ -49,38 +53,33 @@ jobs:
       #     name: cypress-screenshots
       #     path: cypress/screenshots
 
-      # - uses: actions/upload-artifact@v2
-      #   if: always()
-      #   with:
-      #     name: cypress-videos
-      #     path: cypress/videos
-      
-      - name: Start tests
-        run: npm run cypress:execution
-        
-      - name: Generate report
-        if: always()
-        run: node cucumber-html-report.js
-      
-      # - name: Deploy report to Github Pages
-      #   if: always()
-      #   uses: peaceiris/actions-gh-pages@v3.7.3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_branch: gh-pages
-      #     publish_dir: reports/cucumber-htmlreport.html/
-
       - name: Upload artifact cucumber html report
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: cucumber-report
           path: ./reports/cucumber-htmlreport.html
-      - name: Deploy report
-        uses: JamesIves/github-pages-deploy-action@3.1.0
+      
+      - name: Deploy report to Github Pages
         if: always()
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          ACCESS_TOKEN: ${{'secrets.ACCESS_TOKEN'}}
-          BRANCH: main
-          FOLDER: reports
-          TARGET_FOLDER: cucumber-htmlreport.html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: main
+          publish_dir: reports/cucumber-htmlreport.html
+
+      # - name: Upload artifact cucumber html report
+      #   uses: actions/upload-artifact@v1
+      #   if: always()
+      #   with:
+      #     name: cucumber-report
+      #     path: ./reports/cucumber-htmlreport.html
+
+      # - name: Deploy report
+      #   uses: JamesIves/github-pages-deploy-action@3.1.0
+      #   if: always()
+      #   with:
+      #     ACCESS_TOKEN: ${{'secrets.ACCESS_TOKEN'}}
+      #     BRANCH: main
+      #     FOLDER: reports
+      #     TARGET_FOLDER: cucumber-htmlreport.html
