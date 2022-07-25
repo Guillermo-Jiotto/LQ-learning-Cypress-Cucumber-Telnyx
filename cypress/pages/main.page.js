@@ -38,6 +38,7 @@ class mainPage {
     }
 
     supportCenterLinkClick = () => {
+        this.elements.supportCenterLink().scrollIntoView();
         this.elements.supportCenterLink().invoke('removeAttr', 'target').click({force: true});
     }
 
