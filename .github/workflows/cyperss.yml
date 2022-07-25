@@ -59,6 +59,7 @@ jobs:
         run: npm run cypress:execution
         
       - name: Generate report
+        if: always()
         run: node cucumber-html-report.js
       
       - name: Deploy report to Github Pages
