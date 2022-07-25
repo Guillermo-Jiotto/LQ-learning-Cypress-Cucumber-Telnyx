@@ -64,12 +64,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: reports/cucumber-htmlreport/
-      
-      # - name: Deploy report
-      #   uses: JamesIves/github-pages-deploy-action@3.1.0
-      #   if: always()
-      #   with:
-      #     ACCESS_TOKEN: ${{'secrets.ACCESS_TOKEN'}}
-      #     BRANCH: main
-      #     FOLDER: reports
-      #     TARGET_FOLDER: cucumber-htmlreport.html
