@@ -7,3 +7,4 @@ cypress/screenshots
 cypress/videos
 jsonlogs/
 reports/
+cucumber-json-formatter-win.exe
