@@ -53,8 +53,16 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: cucumber-report
+          name: UPLOAD-cucumber-report
           path: reports/cucumber-htmlreport/
+
+      - name: Get Cucumber data
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Deploy
         if: always()
