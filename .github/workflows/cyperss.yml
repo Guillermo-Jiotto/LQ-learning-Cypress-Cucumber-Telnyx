@@ -32,6 +32,8 @@ jobs:
         run: npm install multiple-cucumber-html-reporter --save-dev
       # - name: Make formatter executable
       #   run: chmod +x cucumber-json-formatter
+      # - name: Checkout TESTING
+      #   uses: actions/checkout@v3
       
       - name: Start tests
         run: npm run cypress:execution
@@ -55,10 +57,12 @@ jobs:
           path: reports/cucumber-htmlreport/
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
         if: always()
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          folder: reports/cucumber-htmlreport/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: reports/cucumber-htmlreport/
       
       # - name: Deploy report to Github Pages
       #   if: always()
