@@ -47,12 +47,6 @@ jobs:
       #     browser: chrome
       #     # command: npm run cypress:execution
 
-      # - uses: actions/upload-artifact@v2
-      #   if: failure()
-      #   with:
-      #     name: cypress-screenshots
-      #     path: cypress/screenshots
-
       - name: Upload artifact cucumber html report
         uses: actions/upload-artifact@v2
         if: always()
