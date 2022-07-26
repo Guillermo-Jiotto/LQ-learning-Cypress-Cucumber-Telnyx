@@ -40,7 +40,7 @@ jobs:
 
       - name: Generate report
         if: always()
-        run: node cucumber-html-report.js
+        run: npm run cucumber:report
 
       - name: Upload artifact cucumber html report
         uses: actions/upload-artifact@v2

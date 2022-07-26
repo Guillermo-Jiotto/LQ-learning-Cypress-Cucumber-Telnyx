@@ -20,6 +20,7 @@
   },
   "scripts": {
     "test": "cypress open --config-file resolution.cypress.config.js",
-    "cypress:execution": "cypress run --config-file resolution.cypress.config.js --browser chrome"
+    "cypress:execution": "cypress run --config-file resolution.cypress.config.js",
+    "cucumber:report": "node cucumber-html-report.js"
   }
 }

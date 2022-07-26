@@ -4,7 +4,7 @@ class mainPage {
         emailInput: () => cy.get('[type="email"]'),
         tryForFreeBtn: () => cy.get('[type="submit"]'),
         signupBtn: () => cy.get('[href="/sign-up"]').eq(1),
-        supportCenterLink: () => cy.get('a[href="https://support.telnyx.com"]').last(),
+        supportCenterLink: () => cy.get('a[href="https://support.telnyx.com"]').first(),
         linkedInLink: () => cy.get('[href="https://www.linkedin.com/company/telnyx/"]'),
         twitterLink: () => cy.get('[href="https://twitter.com/telnyx"]'),
         facebookLink: () => cy.get('[href="https://www.facebook.com/Telnyx/"]'),
@@ -38,8 +38,9 @@ class mainPage {
     }
 
     supportCenterLinkClick = () => {
-        this.elements.supportCenterLink().scrollIntoView();
-        this.elements.supportCenterLink().invoke('removeAttr', 'target').click({force: true});
+        // this.elements.supportCenterLink().scrollIntoView();
+        this.elements.supportCenterLink().should('be.visible');
+        this.elements.supportCenterLink().invoke('removeAttr', 'target').click();
     }
 
     linkedInLinkClick = () => {
