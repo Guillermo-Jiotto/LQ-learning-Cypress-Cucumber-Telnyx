@@ -49,14 +49,6 @@ jobs:
           name: UPLOAD-cucumber-report
           path: reports/cucumber-htmlreport/
 
-      # - name: Get Cucumber data
-      #   uses: actions/checkout@v2
-      #   if: always()
-      #   continue-on-error: true
-      #   with:
-      #     ref: gh-pages
-      #     path: gh-pages
-
       - name: Deploy
         if: always()
         uses: peaceiris/actions-gh-pages@v3.7.3
@@ -64,4 +56,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: reports/cucumber-htmlreport/
-          #1
