@@ -40,7 +40,9 @@ class mainPage {
     supportCenterLinkClick = () => {
         // this.elements.supportCenterLink().scrollIntoView();
         this.elements.supportCenterLink().should('be.visible');
-        this.elements.supportCenterLink().invoke('removeAttr', 'target').click();
+        // this.elements.supportCenterLink().invoke('removeAttr', 'target').click();
+        cy.visit('https://support.telnyx.com/en/');
+        // this.elements.supportCenterLink().click();
     }
 
     linkedInLinkClick = () => {
