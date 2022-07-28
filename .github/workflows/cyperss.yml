@@ -49,7 +49,7 @@ jobs:
           name: UPLOAD-cucumber-report
           path: reports/cucumber-htmlreport/
 
-      - name: Deploy
+      - name: Deploy to pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
